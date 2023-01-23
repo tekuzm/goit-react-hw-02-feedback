@@ -10,13 +10,24 @@ class App extends Component {
     bad: 0,
   };
 
-  onLeaveFeedback = () => {};
+  leaveFeedback = optionKey => {
+    if (optionKey === 'Good') {
+      this.setState({ good: this.state.good + 1 });
+    } else if (optionKey === 'Neutral') {
+      this.setState({ neutral: this.state.neutral + 1 });
+    } else {
+      this.setState({ bad: this.state.bad + 1 });
+    }
+  };
 
   render() {
     return (
       <div>
         <Section title="Please leave feedback">
-          <FeedbackOptions options={['Good', 'Neutral', 'Bad']} />
+          <FeedbackOptions
+            options={['Good', 'Neutral', 'Bad']}
+            onLeaveFeedback={this.leaveFeedback}
+          />
         </Section>
 
         <Section title="Statistics">
