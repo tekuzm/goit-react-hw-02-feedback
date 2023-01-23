@@ -1,8 +1,8 @@
-const Statistics = ({ goodValue, neutralValue, badValue }) => (
+const Statistics = ({ good, neutral, bad }) => (
   <ul>
-    <li>Good: {goodValue}</li>
-    <li>Neutral: {neutralValue}</li>
-    <li>Bad: {badValue}</li>
+    <li>Good: {good}</li>
+    <li>Neutral: {neutral}</li>
+    <li>Bad: {bad}</li>
   </ul>
 );
 

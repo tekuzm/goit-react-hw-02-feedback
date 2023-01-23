@@ -11,16 +11,21 @@ class App extends Component {
   };
 
   leaveFeedback = optionKey => {
-    if (optionKey === 'Good') {
-      this.setState({ good: this.state.good + 1 });
-    } else if (optionKey === 'Neutral') {
-      this.setState({ neutral: this.state.neutral + 1 });
-    } else {
-      this.setState({ bad: this.state.bad + 1 });
-    }
+    this.setState({ [optionKey]: this.state[optionKey] + 1 });
+
+    // if (optionKey === 'Good') {
+    //   this.setState({ good: this.state.good + 1 });
+    // } else if (optionKey === 'Neutral') {
+    //   this.setState({ neutral: this.state.neutral + 1 });
+    // } else {
+    //   this.setState({ bad: this.state.bad + 1 });
+    // }
+
+    console.log(this.state);
   };
 
   render() {
+    const { good, neutral, bad } = this.state;
     return (
       <div>
         <Section title="Please leave feedback">
@@ -31,11 +36,7 @@ class App extends Component {
         </Section>
 
         <Section title="Statistics">
-          <Statistics
-            good={this.state.good}
-            neutral={this.state.neutral}
-            bad={this.state.bad}
-          />
+          <Statistics good={good} neutral={neutral} bad={bad} />
         </Section>
       </div>
     );
