@@ -24,16 +24,15 @@ class App extends Component {
   };
 
   countTotalFeedback = () => {
-    // Object.values(obj).reduce((good, neutral, bad) => good + neutral + bad, 0);
-    // const values = Object.values(obj);
+    const values = Object.values(this.state);
+    const total = values.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue;
+    }, 0);
 
-    // const total = values.reduce((accumulator, value) => {
-    //   return accumulator + value;
-    // }, 0);
+    return total;
 
-    const { good, neutral, bad } = this.state;
-
-    return good + neutral + bad;
+    // const { good, neutral, bad } = this.state;
+    // return good + neutral + bad;
   };
 
   countPositiveFeedbackPercentage = () => {
