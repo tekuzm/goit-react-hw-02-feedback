@@ -24,7 +24,7 @@ class App extends Component {
   };
 
   countTotalFeedback = () => {
-    const values = Object.values(this.state);
+    const values = Object.values({ ...this.state });
     const total = values.reduce((accumulator, currentValue) => {
       return accumulator + currentValue;
     }, 0);
