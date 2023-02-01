@@ -1,14 +1,16 @@
 import PropTypes from 'prop-types';
 
+import capitalize from 'components/capitalize';
+
 const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <div>
     {options.map(option => (
       <button
         type="button"
         key={option}
-        onClick={() => onLeaveFeedback(option.toLowerCase())}
+        onClick={() => onLeaveFeedback(option)}
       >
-        {option}
+        {capitalize(option)}
       </button>
     ))}
   </div>
